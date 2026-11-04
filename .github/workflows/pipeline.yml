@@ -18,8 +18,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install Dependencies
-        run: pip install -r project/deployment/requirements.txt   # Replace with the path to your project's requirements file.
+      - name: Install Dependencies # Replace with the path to your project's requirements file.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r project/deployment/requirements.txt    
       - name: Register Dataset
         run: python project/data/model_building/data_register.py   # Replace with the path to your dataset registration script.
       - name: Upload Registered Dataset
@@ -36,8 +38,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install Dependencies
-        run: pip install -r project/deployment/requirements.txt   # Replace with the path to your project's requirements file.
+      - name: Install Dependencies # Replace with the path to your project's requirements file.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r project/deployment/requirements.txt    
       - name: Run Data Preparation
         run: python project/data/model_building/prep.py   # Replace with the path to your data preparation script.
       - name: Upload Train Test Splits
